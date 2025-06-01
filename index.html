@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CheckMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style_extended.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">CheckMe</div><button onclick="toggleTheme()">🌓</button>
+      <button class="settings-btn nav-btn" data-target="settings" onclick="switchScreen('settings')">⚙️</button>
+    </header>
+
+    <main id="screen-home" class="screen active">
+      <h2>Главная</h2>
+      <div class="block">
+        <div class="label">Общая сумма трат</div>
+        <div id="total-balance" class="value">–0 ₽</div>
+      </div>
+      <div class="block"><h3>Карта подписок</h3><canvas id="donutChart" width="280" height="280"></canvas></div>
+      <div class="block"><h3>Статистика по категориям</h3><canvas id="barChart" width="300" height="200"></canvas></div>
+    </main>
+
+    <main id="screen-subscriptions" class="screen">
+      <h2>Мои подписки</h2>
+      <div class="tabs">
+        <button onclick="toggleSubTab('active')" id="tab-active" class="tab active">Активные</button>
+        <button onclick="toggleSubTab('inactive')" id="tab-inactive" class="tab">Неактуальные</button>
+      </div>
+      <ul id="active-subs" class="sub-list"></ul>
+      <ul id="inactive-subs" class="sub-list hidden"></ul>
+      <button onclick="addSubPrompt()">➕ Добавить вручную</button>
+    </main>
+
+    <main id="screen-analytics" class="screen">
+      <h2>Аналитика</h2>
+      <div class="block"><canvas id="analyticsChart" width="300" height="200"></canvas></div>
+    </main>
+
+    <main id="screen-settings" class="screen">
+      <h2>Настройки</h2>
+      <div class="block"><h3>Профиль</h3><label>Имя:</label><input type="text" id="profile-name" value="Иван Иванов"><label>Email:</label><input type="email" id="profile-email" value="you@example.com"></div>
+      <div class="block"><h3>Банковские карты</h3><ul id="cards-list"></ul><button onclick="addCard()">➕ Добавить карту</button></div>
+      <div class="block"><h3>Семейная группа</h3><ul id="family-list"></ul><button onclick="addFamilyMember()">➕ Добавить участника</button></div>
+    </main>
+
+    <footer>
+      <button class="nav-btn active" data-target="home">🏠</button>
+      <button class="nav-btn" data-target="subscriptions">📄</button>
+      <button class="nav-btn" data-target="analytics">📊</button>
+      <button class="nav-btn" data-target="settings">👤</button>
+    </footer>
+  </div>
+  <script src="script_extended.js"></script>
+</body>
+</html>
