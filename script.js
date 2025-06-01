@@ -171,12 +171,13 @@ function render() {
     cardsEl.appendChild(li);
   });
 
-  семья.forEach(m => {
-    const li = document.createElement("li");
-    li.textContent = m;
-    familyEl.appendChild(li);
-  });
-}
+  семья.forEach((m, i) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    ${m} <button onclick="removeFamilyMember(${i})" style="margin-left:10px;">✖</button>
+  `;
+  familyEl.appendChild(li);
+});
 
 // === ЗАПУСК ===
 window.addEventListener("load", () => {
