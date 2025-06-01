@@ -107,11 +107,11 @@ function render() {
   // Подписки
   подписки.forEach(sub => {
     const el = document.createElement("li");
-    el.innerHTML = \`\${sub.name} — \${sub.price} ₽
-      <div>
-        <button onclick="toggleSub(\${sub.id})">🔄</button>
-        <button onclick="removeSub(\${sub.id})">✖</button>
-      </div>\`;
+    el.innerHTML = `${sub.name} — ${sub.price} ₽
+  <div>
+    <button onclick="toggleSub(${sub.id})">🔄</button>
+    <button onclick="removeSub(${sub.id})">✖</button>
+  </div>`;
 
     if (sub.active) {
       actList.appendChild(el);
@@ -211,3 +211,6 @@ window.addEventListener("load", () => {
   document.getElementById("profile-name").value = localStorage.getItem("checkme_name") || "Иван Иванов";
   document.getElementById("profile-email").value = localStorage.getItem("checkme_email") || "you@example.com";
 });
+  function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
