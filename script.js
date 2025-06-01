@@ -178,3 +178,10 @@ function render() {
 
 // ИНИЦИАЛЬНЫЙ ЗАПУСК
 render();
+// === СОБЫТИЯ НАВИГАЦИИ ===
+document.querySelectorAll(".nav-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const screen = btn.getAttribute("data-target");
+    switchScreen(screen);
+  });
+});
